@@ -1,0 +1,48 @@
+import sys
+
+team1 = input ("请输入第一支队伍名称：").strip()
+team2 = input ("请输入第二支队伍名称：").strip()
+while team2 == "" or team1 == team2:
+    team2 = input("请正确输入第二支队伍名称：").strip()
+team1 = []
+team2 = []
+
+def scores():
+    dui = input('请选择得分球队：第一支队伍【team1】 第二支队伍【team2】比赛结果按：e\n请输入：')
+    if dui == 'team1':
+        while 1:
+            scors = input("您选择的是【team1】请输入得分：\n得分(输入q退出)：")
+            if scors == 'q':
+                scores()
+            elif scors.isdigit():
+                scors = int(scors)
+                team1.append(scors)
+            else:
+                print('输入有误，请输入数字！')
+    elif dui == 'team2':
+        while 1:
+            scors = input("您选择的是【team2】请输入得分：\n得分(输入q退出)：")
+            if scors == 'q':
+                scores()
+            elif scors.isdigit():
+                scors = int(scors)
+                team2.append(scors)
+            else:
+                print('输入有误，请输入数字！')
+    elif dui == 'e':
+        print('team1得分：',sum(team1))
+        print('team2得分：',sum(team2))
+        if sum(team1) > sum(team2):
+            print('冠军是：team1')
+
+        elif sum(team1) == sum(team2):
+            print('比赛为平局！')
+
+        else:
+            print('冠军是：team2\n比赛结束！')
+    else:
+        print('输入有误，请重新输入！')
+        scores()
+scores()
+print()
+
