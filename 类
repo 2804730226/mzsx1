@@ -1,0 +1,9 @@
+class zxc:
+    __className = "zxc"
+    def __init__(self, name, money):
+        self.name = name
+        self.__money = money
+    def say(self):
+        print("I am %s ,i have %d yuan" % (self.name, self.__money))
+p = zxc('qwe',1000)
+p.say()
